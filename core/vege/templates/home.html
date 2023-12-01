@@ -57,7 +57,31 @@
 
         <button type="submit" class="btn btn-success">Add Recipe</button>
       </form>
-      <h1>{{recipies}}</h1>
+      <div class="container card p-5 my-2">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">S.No</th>
+              <th scope="col">Recipe Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Image</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for recipe in recipies %}
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{recipe.racipe_name}}</td>
+              <td>{{recipe.racipe_description}}</td>
+              <td>
+                <img src="{{recipe.racipe_image}}" alt="image" width="{100}" />
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>
