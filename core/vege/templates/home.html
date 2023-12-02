@@ -57,6 +57,7 @@
 
         <button type="submit" class="btn btn-success">Add Recipe</button>
       </form>
+      {% if recipies %}
       <div class="container card p-5 my-2">
         <table class="table">
           <thead>
@@ -65,7 +66,7 @@
               <th scope="col">Recipe Name</th>
               <th scope="col">Description</th>
               <th scope="col">Image</th>
-              <th scope="col">Action</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -77,11 +78,20 @@
               <td>
                 <img src="{{recipe.racipe_image}}" alt="image" width="{100}" />
               </td>
+              <td>
+                <a href="/delete_recipe/{{recipe.id}}" class="btn btn-danger"
+                  >Delete</a
+                >
+                <a href="/delete_recipe/{{recipe.id}}" class="btn btn-dark"
+                  >Update</a
+                >
+              </td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
+      {% endif %}
     </div>
   </body>
 </html>

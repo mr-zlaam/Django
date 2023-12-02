@@ -3,4 +3,9 @@ from django.contrib import admin
 from django.urls import path
 from vege.views import *
 
-urlpatterns = [path("admin/", admin.site.urls), path("", recipies)]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", recipies),
+    path("delete_recipe/<id>", delete_recipe, name="delete_recipe"),
+    path("update_recipe/<id>", update_recipe, name="update_recipe"),
+]
