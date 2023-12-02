@@ -4,6 +4,3 @@ from django.urls import path
 from vege.views import *
 
 urlpatterns = [path("admin/", admin.site.urls), path("", recipies)]
-# if settings.DEBUG:
-#     urlpatterns+=
-# urlpatterns += staticfiles_urlpatterns
