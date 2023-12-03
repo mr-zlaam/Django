@@ -20,12 +20,13 @@
         enctype="multipart/form-data"
       >
         {% csrf_token %}
-        <h2 class="text-center">Add Recipe</h2>
+        <h2 class="text-center">Update Recipe</h2>
         <hr />
         <div class="mb-3">
           <label for="text" class="form-label">Recipe Name</label>
           <input
             require
+            value="{{recipe.racipe_name}}"
             name="racipe_name"
             type="text"
             class="form-control"
@@ -40,7 +41,9 @@
             class="form-control"
             placeholder="Leave a comment here"
             id="floatingTextarea"
-          ></textarea>
+          >
+          {{recipe.racipe_description}}
+          </textarea>
           <label for="floatingTextarea">Description</label>
         </div>
         <div class="form-floating py-3">
@@ -55,43 +58,8 @@
           <label for="floatingTextarea">Image</label>
         </div>
 
-        <button type="submit" class="btn btn-success">Add Recipe</button>
+        <button type="submit" class="btn btn-success">Update Recipe</button>
       </form>
-      {% if recipies %}
-      <div class="container card p-5 my-2">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">S.No</th>
-              <th scope="col">Recipe Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">Image</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for recipe in recipies %}
-            <tr>
-              <th scope="row">{{forloop.counter}}</th>
-              <td>{{recipe.racipe_name}}</td>
-              <td>{{recipe.racipe_description}}</td>
-              <td>
-                <img src="{{recipe.racipe_image}}" alt="image" width="{100}" />
-              </td>
-              <td>
-                <a href="/delete_recipe/{{recipe.id}}" class="btn btn-danger"
-                  >Delete</a
-                >
-                <a href="/update_recipe/{{recipe.id}}" class="btn btn-dark"
-                  >Update</a
-                >
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      {% endif %}
     </div>
   </body>
 </html>
